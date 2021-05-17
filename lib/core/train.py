@@ -69,7 +69,7 @@ def parse_args():
 def main():
     args = parse_args()
 
-    # pdb.set_trace()
+    pdb.set_trace()
 
     cfg = Config.fromfile(args.config)
     if args.options is not None:

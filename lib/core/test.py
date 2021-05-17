@@ -20,6 +20,7 @@ def parse_args():
         description='MMDet test (and eval) a model')
     parser.add_argument('config', help='test config file path')
     parser.add_argument('checkpoint', help='checkpoint file')
+    parser.add_argument('data_root', help='data root dir')
     parser.add_argument('--out', help='output result file in pickle format')
     parser.add_argument(
         '--fuse-conv-bn',
@@ -71,6 +72,7 @@ def parse_args():
 def main():
     args = parse_args()
     # pdb.set_trace()
+    data_root = args.data_root
     assert args.out or args.eval or args.format_only or args.show, \
         ('Please specify at least one operation (save/eval/format/show the '
          'results) with the argument "--out", "--eval", "--format_only" '
@@ -89,6 +91,8 @@ def main():
 
     cfg.model.pretrained = None
     cfg.data.test.test_mode = True
+    cfg.data.test.data_root = data_root
+    cfg.data.test.ann_file = os.path.join(data_root, 'sunrgbd_infos_val.pkl')
 
     # init distributed env first, since logger depends on the dist info.
     if args.launcher == 'none':

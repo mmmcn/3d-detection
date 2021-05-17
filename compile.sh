@@ -1,33 +1,16 @@
 OPSPATH="lib/utils/cuda_ops"
 
-
-# density_and_manhattan_weights_fps
-#cd ${OPSPATH}/density_and_manhattan_weights_fps
-#./build_and_clean.sh
+cd ${OPSPATH}
 
 # density_and_manhattan_weights_meanwhile_fps
 # only need density_and_manhattan_weights_meanwhile_fps
 cd density_and_manhattan_weights_meanwhile_fps
-./build_and_clean.sh
+python setup.py build
 
-# density_weights_fps
-#cd density_weights_fps
-#./build_and_clean.sh
+ext_file=`ls build/ | grep lib`
+ext_file=$ext_file/`ls build/$ext_file`
+cp build/$ext_file .
 
+rm -rf build
 
-# manhattan_weights_fps
-#cd manhattan_weights_fps
-#./build_and_clean.sh
-
-# voxel_ball_query
-#cd voxel_ball_query
-#./build_and_clean.sh
-
-
-# voxel_generator
-#cd voxel_generator
-#./build_and_clean.sh
-
-# voxel_group_points
-#cd voxel_group_points
-#./build_and_clean.sh
+cd ../../../../

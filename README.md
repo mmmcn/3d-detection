@@ -22,24 +22,29 @@
 ```shell
 export PYTHONPATH=$PYTHONPATH:/path/to/point-3d/lib
 ```
+  
 
+之后编译相关文件:  
+```shell
+./compile.sh
+```
 
 
 1. 不保存结果，仅评估mAP
 
    ```shell
-   python lib/core/test.py configs/votenet/manhattan_votenet_4x16_sunrgbd-3d-10class.py checkpoints/model.pth ./data --eval mAP
+   python lib/core/test.py configs/votenet/manhattan_votenet_2x32_sunrgbd-3d-10class.py checkpoints/manhattan_votenet_0.05_0.05_0.90_epoch34.pth ./data --eval mAP
    ```
 
 2.  保存预测结果并评估mAP
 
-   ```shel
-   python lib/core/test.py configs/votenet/manhattan_votenet_4x16_sunrgbd-3d-10class.py checkpoints/model.pth ./data --eval mAP --options 'show=True' 'out_dir=./data/sunrgbd/show_results'
+   ```shell
+   python lib/core/test.py configs/votenet/manhattan_votenet_2x32_sunrgbd-3d-10class.py checkpoints/manhattan_votenet_0.05_0.05_0.90_epoch34.pth ./data --eval mAP --options 'show=True' 'out_dir=./data/sunrgbd/show_results'
    ```
 
-测试inference time：  
+3. 测试inference time：  
 
-```shell
-python lib/core/benchmark.py configs/votenet/manhattan_votenet_4x16_sunrgbd-3d-10class.py checkpoints/model.pth ./data
-```
+   ```shell
+   python lib/core/benchmark.py configs/votenet/manhattan_votenet_2x32_sunrgbd-3d-10class.py checkpoints/manhattan_votenet_0.05_0.05_0.90_epoch34.pth ./data
+   ```
 

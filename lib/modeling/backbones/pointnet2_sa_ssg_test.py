@@ -4,7 +4,8 @@ from torch import nn as nn
 
 from mmdet3d.ops import PointFPModule, build_sa_module
 from mmdet.models import BACKBONES
-from mmdet3d.models.backbones.base_pointnet import BasePointNet
+# from mmdet3d.models.backbones.base_pointnet import BasePointNet
+from .base_pointnet import BasePointNet
 
 
 @BACKBONES.register_module()

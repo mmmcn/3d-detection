@@ -14,3 +14,46 @@ cp build/$ext_file .
 rm -rf build
 
 cd ../../../../
+
+# compile mmdet3d ops
+
+MMDET3D_OPS_PATH="mmdet3d/ops"
+cd ${MMDET3D_OPS_PATH}
+
+# ball_query
+cd ball_query
+python setup.py build
+../run.sh
+cd ..
+
+# furthest_point_sample
+cd furthest_point_sample
+python setup.py build
+../run.sh
+cd ..
+
+
+# gather_points
+cd gather_points
+python setup.py build
+../run.sh
+cd ..
+
+# interpolate
+cd interpolate
+python setup.py build
+../run.sh
+cd ..
+
+# iou3d
+cd iou3d
+python setup.py build
+../run.sh
+
+# roiaware_pool3d
+cd roiaware_pool3d
+python setup.py build
+../run.sh
+
+cd ../../../
+

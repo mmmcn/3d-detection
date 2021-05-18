@@ -1,3 +1,7 @@
 /work_dir
 /epoch*
 /data/sunrgbd
+
+*.so
+
+*__pycache__

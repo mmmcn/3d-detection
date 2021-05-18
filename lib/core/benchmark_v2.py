@@ -17,7 +17,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description='MMDet benchmark a model')
     parser.add_argument('config', help='test config file path')
     parser.add_argument('checkpoint', help='checkpoint file')
-    parser.add_argument('data_root', help= 'data root dir')
+    parser.add_argument('--data_root', help='specify the mini_data root dir')
     parser.add_argument('--samples', default=100, help='samples to benchmark')
     parser.add_argument(
         '--log-interval', default=50, help='interval of logging')

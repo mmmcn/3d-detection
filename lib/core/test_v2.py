@@ -25,6 +25,7 @@ def parse_args():
         description='MMDet test (and eval) a model')
     parser.add_argument('config', help='test config file path')
     parser.add_argument('checkpoint', help='checkpoint file')
+    parser.add_argument('--data_root', help='specify the mini_data root dir')
     parser.add_argument('--out', help='output result file in pickle format')
     parser.add_argument(
         '--fuse-conv-bn',
@@ -93,6 +94,9 @@ def main():
 
     cfg.model.pretrained = None
     cfg.data.test.test_mode = True
+    data_root = args.data_root
+    cfg.data.test.data_root = data_root
+    cfg.data.test.ann_file = os.path.join(data_root, 'sunrgbd_infos_val.pkl')
 
     # init distributed env first, since logger depends on the dist info.
     if args.launcher == 'none':

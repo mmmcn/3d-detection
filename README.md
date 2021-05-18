@@ -23,17 +23,17 @@ conda create -n votenet python=3.7
 conda activate votenet
 ```
   
-b. 根据![Pytorch官方](https://pytorch.org/get-started/locally/)安装对应版本的torch及torchvision  
+b. 根据[Pytorch官方](https://pytorch.org/get-started/locally/)安装对应版本的torch及torchvision  
 ```shell
 conda install pytorch==1.5.0 torchvision==0.6.0 cudatoolkit=10.1
 ```
   
-c. 安装![MMCV](https://github.com/open-mmlab/mmcv)  
+c. 安装[MMCV](https://github.com/open-mmlab/mmcv)  
 ```shell
  pip install mmcv-full==1.1.5 -f https://download.openmmlab.com/mmcv/dist/cu101/torch1.5.0/index.html
 ```
   
-d. 安装![MMDetection](https://github.com/open-mmlab/mmdetection)  
+d. 安装[MMDetection](https://github.com/open-mmlab/mmdetection)  
 ```shell
 git clone -b v2.5.0 https://github.com/open-mmlab/mmdetection.git
 cd mmdetection-2.5.0
@@ -67,7 +67,7 @@ export PYTHONPATH=$PYTHONPATH:/path/to/3d-detection/lib:/path/to/3d-detection/mm
 ## 数据准备
 `./data`目录中数据仅支持使用预训练模型infer及测试模型推断速度  
 如果想要训练自己的模型  
-1. 请参考![votenet](https://github.com/facebookresearch/votenet/tree/master/sunrgbd)中步骤1和步骤2
+1. 请参考[votenet](https://github.com/facebookresearch/votenet/tree/master/sunrgbd)中步骤1和步骤2
 2. 执行以下命令生成训练数据:
   ```shell
   python lib/utils/create_data/create_data.py sunrgbd --root-path ./data/sunrgbd --out-dir ./data/sunrgbd --extra-tag sunrgbd
@@ -84,7 +84,7 @@ python lib/core/train_v2.py configs/votenet/manhattan_votenet_2x32_sunrgbd-3d-10
 ```  
 
 ## Test阶段
-**如果仅使用部分数据集, 则需要指定`data\_root`参数**
+**如果仅使用部分数据集, 则需要指定`data_root`参数**
 1. 不保存结果,仅评估mAP
 ```shell
 python lib/core/test.py configs/votenet/manhattan_votenet_2x32_sunrgbd-3d-10class.py checkpoints/manhattan_votenet_0.05_0.05_0.90_epoch34.pth --data_root ./data --eval mAP

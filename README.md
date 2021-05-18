@@ -43,7 +43,7 @@ pip install -v -e . # or “python setup.py develop”
   
 e. 将本仓库克隆到本地  
 ```shell
-git clone https://github.com/mmmcn/3d-detection.git
+git clone https://github.com/mmmcn/votenet-manhattan.git
 cd 3d-detection
 ```
   

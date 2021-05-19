@@ -44,7 +44,7 @@ pip install -v -e . # or “python setup.py develop”
 e. 将本仓库克隆到本地  
 ```shell
 git clone https://github.com/mmmcn/votenet-manhattan.git
-cd 3d-detection
+cd votenet-manhattan
 ```
   
 f. 编译相关文件  
@@ -62,7 +62,7 @@ scipy
 # 运行方式
 首先将`lib`及`mmdet3d`添加到`PYTHONPATH`  
 ```shell
-export PYTHONPATH=$PYTHONPATH:/path/to/3d-detection/lib:/path/to/3d-detection/mmdet3d
+export PYTHONPATH=$PYTHONPATH:/path/to/votenet-manhattan/lib:/path/to/votenet-manhattan/mmdet3d
 ```
 ## 数据准备
 `./data`目录中数据仅支持使用预训练模型infer及测试模型推断速度  
@@ -99,3 +99,7 @@ python lib/core/test.py configs/votenet/manhattan_votenet_2x32_sunrgbd-3d-10clas
 ```shell
 python lib/core/benchmark_v2.py configs/votenet/manhattan_votenet_2x32_sunrgbd-3d-10class.py checkpoints/manhattan_votenet_0.05_0.05_0.90_epoch34.pth --data_root ./data
 ```
+  
+# 可能会出现的Bug
+执行`./compile.sh`后可能有些ops不能`build`出相关`.so`文件  
+需要自行切到对应目录下执行`python setup.py build`,之后将生成的存在`build`文件夹中`.so`文件拷贝到对应ops的根目录下

@@ -39,6 +39,12 @@ python setup.py build
 ../run.sh
 cd ..
 
+# group_points
+cd group_points
+python setup.py build
+../run.sh
+cd ..
+
 # interpolate
 cd interpolate
 python setup.py build
@@ -49,6 +55,7 @@ cd ..
 cd iou3d
 python setup.py build
 ../run.sh
+cd ..
 
 # roiaware_pool3d
 cd roiaware_pool3d

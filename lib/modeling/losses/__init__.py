@@ -1,3 +1,3 @@
-from .chamfer_distance import ChamferDistance
+from .chamfer_distance import ChamferDistance, chamfer_distance
 
-__all__ = ['ChamferDistance']
+__all__ = ['ChamferDistance', 'chamfer_distance']
